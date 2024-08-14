@@ -31,7 +31,48 @@ EDA involves exploring the data to answer the following questions:
 
 ## Insights
 
-I began by joining the two datasets—the Donation data and the Donor data—in SQLite, using the query below:
+**I began by joining the two datasets—the Donation data and the Donor data—in SQLite, using the query below:**
+
+```sql
+SELECT*
+FROM Donation_Data
+JOIN Donor_Data2
+ON Donation_Data.id=Donor_Data2.id;
+```
+
+#### **Donation Amount by State**
+
+```sql
+SELECT state, SUM(donation)
+FROM Donation_Data
+group by state;
+```
+
+#### **Top States with 30 or more Donor**
+
+```sql
+SELECT state, COUNT(donation) AS donation_count
+FROM Donation_Data
+GROUP BY state
+HAVING COUNT(donation) >= 30
+ORDER BY donation_count DESC;
+```
+
+The table below highlights the states with 30 or more donors. Notably, California has the highest number of donors, followed by Texas, Florida, and other states.
+
+![](top_states_with_30_or_more_donor.png)
+
+#### **Donation Amount by Donation Frequency**
+
+```sql
+SELECT donation_frequency, SUM(donation)
+FROM Donation_Data
+JOIN Donor_Data2
+ON Donation_Data.id = Donor_Data2.id
+GROUP BY donation_frequency;
+```
+
+
 
 
 
