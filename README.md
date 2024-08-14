@@ -1,0 +1,1 @@
+# Strategic-Fundraising-Plan---Analyzing-Donation-Patterns-for-an-Educational-Charity
